@@ -68,7 +68,7 @@ text-align: center;
 }
 .play{
   position: absolute;
-  font-size: 3vw;
+  font-size: 50px;
   margin-top: -18%;
   margin-left: 115px;
   color: white;
@@ -85,8 +85,18 @@ text-align: center;
   display: flex;
 
 }
+
 .desc{
 position: absolute;
+font-size: 12px;
+margin-top: -570px;
+margin-left: -180px;
+text-align: center;
+display: flex;
+
+}
+.joke{
+  position: absolute;
 font-size: 12px;
 margin-top: -570px;
 margin-left: -180px;

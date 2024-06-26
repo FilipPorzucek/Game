@@ -64,7 +64,7 @@ const jokesArray = [
         joke: 'Dlaczego dynia ' + '<br>' + 'poszła do lekarza?' + '<br>' + ' Bo miała pestkę.'
     },
     {
-        joke: 'Dlaczego kotnie lubi' + '<br>' + 'wody?' + '<br>' + ' Bo zawsze zostaje mokry.'
+        joke: 'Dlaczego kot nie lubi' + '<br>' + 'wody?' + '<br>' + ' Bo zawsze zostaje mokry.'
     },
     {
         joke: 'Co mówi ślimak' + '<br>' + 'kiedy wsiada do taksówki?' + '<br>' + ' Poproszę szybciej!'
@@ -80,6 +80,26 @@ man.addEventListener('click', () => {
     desc.style.fontSize = '18px';
     desc.style.marginLeft = '-155px';
 });
+man.addEventListener('mouseover', () => {
+    const jokeInformation = 'Kliknij na mnie <br> a opowiem ci żart. Kliknij dwa razy <br> a pokaże ci twórców gry';
+    desc.innerHTML = jokeInformation;
+    desc.style.fontSize = '14px';
+    desc.style.marginLeft = '-155px';
+});
+man.addEventListener('mouseout', () => {
+    desc.innerHTML = "WITAJ W PROGRAMIE MILIONERZY !" + "<br>" +
+        " WYTĘŻ SWÓJ UMYSŁ I ZAGRAJ O MILION <br>ZŁOTYCH W NASZYM TELETURNIEJU." + "<br>";
+    desc.style.fontSize = '12px';
+    desc.style.marginLeft = '-172px';
+});
+man.addEventListener('dblclick', () => {
+    desc.innerHTML = "Filip Porzucek <br> Wiktor Maliszewski <br> Ryszard Redelbach";
+    desc.style.fontSize = '18px';
+    desc.style.marginLeft = '-140px';
+});
+const winGame = new Audio("winGame.mp3");
+const vol = new Audio("wait.mp3");
+const lastQuestion = new Audio('lastQuestion.mp3');
 play.addEventListener('click', () => {
     setTimeout(() => {
         man.style.display = 'none';
@@ -94,6 +114,7 @@ play.addEventListener('click', () => {
         ;
         level12.style.color = 'yellow';
         logo.style.display = 'block';
+        lastQuestion.play();
         test.style.display = 'block';
         answers.style.display = 'inline-block';
         levelsArray.forEach(level => {
@@ -506,7 +527,6 @@ function generate() {
         const corrects = questions.map(question => question.correctAnswer);
         confirm.addEventListener('click', () => {
             const correctVol = new Audio('correct.mp3');
-            const vol = new Audio("wait.mp3");
             vol.play();
             desc2.innerHTML = 'Sprawdzamy odpowiedz...';
             setTimeout(() => {
@@ -561,7 +581,6 @@ function generate() {
                             level2.style.color = 'yellow';
                         }
                         if (currentLevel === 12) {
-                            const lastQuestion = new Audio('lastQuestion.mp3');
                             lastQuestion.play();
                             level2.style.color = 'white';
                             level1.style.color = 'yellow';
@@ -627,6 +646,7 @@ function endOfGaame() {
             cloud2.style.display = 'none';
             desc2.style.display = 'none';
             again.style.display = 'none';
+            lastQuestion.play();
             chance2.style.display = 'none';
             man.style.display = 'none';
             writing.style.display = 'none';
@@ -741,7 +761,6 @@ function win() {
     man2.style.display = 'block';
     cloud3.style.display = 'block';
     desc3.style.display = 'block';
-    const winGame = new Audio("winGame.mp3");
     winGame.play();
     desc3.innerHTML = 'Wooow!! twoja wiedza jest naprawde na wysokim poziomie.' + '<br>' + 'Musze przyznać że jestem pod wrażeniem.' + 'Wygrywasz MILION złotych.' + 'Nagrode wyślemy na twoje konto bankowe.';
 }
