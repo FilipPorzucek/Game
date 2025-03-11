@@ -56,15 +56,19 @@ text-align: center;
 
   display: flex;
 }
-.writing{
-
+.writing {
   color: rgb(86, 122, 219);
-  font-size: 4.6vw;
-  text-shadow:0 0 0.2em rgb(0, 0, 0), 0 0 0.2em  black ;
-  margin-top: 121%;
+  font-size: 80px;
+  text-shadow: 0 0 0.2em rgb(0, 0, 0), 0 0 0.2em black;
   position: absolute;
-  margin-left: -40px;
+  top: 84%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 .play{
   position: absolute;
